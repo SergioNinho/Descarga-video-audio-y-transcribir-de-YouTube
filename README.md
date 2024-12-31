@@ -26,11 +26,10 @@ Uso
 Para descargar videos y audios de YouTube y realizar transcripciones, puedes ejecutar las funciones provistas en el script.
 
 Ejemplo de uso
---------------------------------------
+
 Descargar video
---------------------------------------
+
 python
-``
 from pytubefix import YouTube
 from pytubefix.cli import on_progress
 import os
@@ -48,7 +47,7 @@ def descarga_video(link):
     name ='Asurgir-' + yt.title + '.mp4'
     ys = yt.streams.get_highest_resolution()
     ys.download(output_path=os.path.join(url_descargas, folder), filename=name)
-``
+
     
 Descargar audio
 ----------------------------------------------
