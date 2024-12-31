@@ -80,7 +80,7 @@ def video_texto(link):
         # Obtener el texto transcrito
         return result["text"]
 ```
-    # Ejemplo de uso
+# Ejemplo de uso
 ```
     audio_path = name + '.m4a'
     texto = transcribe_audio_whisper(audio_path)
