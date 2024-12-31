@@ -43,6 +43,7 @@ def descarga_video(link):
     name ='Asurgir-' + yt.title + '.mp4'
     ys = yt.streams.get_highest_resolution()
     ys.download(output_path=os.path.join(url_descargas, folder), filename=name)
+```
 ## Descargar audio
 ```
 def descarga_audio(link):
@@ -54,6 +55,7 @@ def descarga_audio(link):
     url_descargas = str(Path.home() / path)
     name ='Asurgir-' + yt.title
     ys.download(output_path=os.path.join(url_descargas, folder), filename=name)
+```
 ## Transcribir audio
 ```
 def video_texto(link):
@@ -77,7 +79,7 @@ def video_texto(link):
         
         # Obtener el texto transcrito
         return result["text"]
-
+```
     # Ejemplo de uso
 ```
     audio_path = name + '.m4a'
@@ -92,6 +94,7 @@ def video_texto(link):
         archivo.write(texto)
     time.sleep(20)
     remove(name + '.m4a')
+```
 ## Contribución
 Si deseas contribuir a este proyecto, por favor crea un fork del repositorio y abre un Pull Request con tus cambios.
 
