@@ -25,6 +25,7 @@ Para descargar videos y audios de YouTube y realizar transcripciones, puedes eje
 
 # Ejemplo de uso
 ## Descargar video
+```
 from pytubefix import YouTube
 from pytubefix.cli import on_progress
 import os
@@ -43,6 +44,7 @@ def descarga_video(link):
     ys = yt.streams.get_highest_resolution()
     ys.download(output_path=os.path.join(url_descargas, folder), filename=name)
 ## Descargar audio
+```
 def descarga_audio(link):
     url = link
     yt = YouTube(url, on_progress_callback = on_progress)
@@ -53,6 +55,7 @@ def descarga_audio(link):
     name ='Asurgir-' + yt.title
     ys.download(output_path=os.path.join(url_descargas, folder), filename=name)
 ## Transcribir audio
+```
 def video_texto(link):
     url = link
     yt = YouTube(url, on_progress_callback = on_progress)
@@ -76,6 +79,7 @@ def video_texto(link):
         return result["text"]
 
     # Ejemplo de uso
+```
     audio_path = name + '.m4a'
     texto = transcribe_audio_whisper(audio_path)
     print("Texto transcrito:", texto)
