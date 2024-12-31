@@ -47,6 +47,7 @@ def descarga_video(link):
     name ='Asurgir-' + yt.title + '.mp4'
     ys = yt.streams.get_highest_resolution()
     ys.download(output_path=os.path.join(url_descargas, folder), filename=name)
+-----------------------------------------------------------------
     
 Descargar audio
 ----------------------------------------------
@@ -60,6 +61,7 @@ def descarga_audio(link):
     url_descargas = str(Path.home() / path)
     name ='Asurgir-' + yt.title
     ys.download(output_path=os.path.join(url_descargas, folder), filename=name)
+-------------------------------------------------------------------------------------
     
 Transcribir audio
 ----------------------------------------------
