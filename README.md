@@ -30,7 +30,7 @@ Ejemplo de uso
 Descargar video
 --------------------------------------
 python
-'''
+``
 from pytubefix import YouTube
 from pytubefix.cli import on_progress
 import os
@@ -48,12 +48,12 @@ def descarga_video(link):
     name ='Asurgir-' + yt.title + '.mp4'
     ys = yt.streams.get_highest_resolution()
     ys.download(output_path=os.path.join(url_descargas, folder), filename=name)
-'''
+``
     
 Descargar audio
 ----------------------------------------------
 python
-'''
+``
 def descarga_audio(link):
     url = link
     yt = YouTube(url, on_progress_callback = on_progress)
@@ -63,13 +63,13 @@ def descarga_audio(link):
     url_descargas = str(Path.home() / path)
     name ='Asurgir-' + yt.title
     ys.download(output_path=os.path.join(url_descargas, folder), filename=name)
-'''
+``
 
     
 Transcribir audio
 ----------------------------------------------
 python
-'''
+``
 def video_texto(link):
     url = link
     yt = YouTube(url, on_progress_callback = on_progress)
@@ -104,7 +104,7 @@ def video_texto(link):
         archivo.write(texto)
     time.sleep(20)
     remove(name + '.m4a')
-'''
+``
 Contribución
 Si deseas contribuir a este proyecto, por favor crea un fork del repositorio y abre un Pull Request con tus cambios.
 
