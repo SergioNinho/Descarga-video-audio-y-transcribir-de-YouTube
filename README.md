@@ -30,8 +30,8 @@ Ejemplo de uso
 Descargar video
 --------------------------------------
 python
-
-'from pytubefix import YouTube
+'''
+from pytubefix import YouTube
 from pytubefix.cli import on_progress
 import os
 from os import remove
@@ -47,14 +47,14 @@ def descarga_video(link):
     url_descargas = str(Path.home() / path)
     name ='Asurgir-' + yt.title + '.mp4'
     ys = yt.streams.get_highest_resolution()
-    ys.download(output_path=os.path.join(url_descargas, folder), filename=name)'
-
+    ys.download(output_path=os.path.join(url_descargas, folder), filename=name)
+'''
     
 Descargar audio
 ----------------------------------------------
 python
-
-'def descarga_audio(link):
+'''
+def descarga_audio(link):
     url = link
     yt = YouTube(url, on_progress_callback = on_progress)
     ys = yt.streams.get_audio_only()
@@ -62,14 +62,15 @@ python
     folder = '@surgir.mp3'
     url_descargas = str(Path.home() / path)
     name ='Asurgir-' + yt.title
-    ys.download(output_path=os.path.join(url_descargas, folder), filename=name)'
+    ys.download(output_path=os.path.join(url_descargas, folder), filename=name)
+'''
 
     
 Transcribir audio
 ----------------------------------------------
 python
-
-'def video_texto(link):
+'''
+def video_texto(link):
     url = link
     yt = YouTube(url, on_progress_callback = on_progress)
     ys = yt.streams.get_audio_only()
@@ -102,7 +103,8 @@ python
     with open(os.path.join(url_descaga_txt, folder_txt, name_txt), 'w') as archivo:
         archivo.write(texto)
     time.sleep(20)
-    remove(name + '.m4a')'
+    remove(name + '.m4a')
+'''
 Contribución
 Si deseas contribuir a este proyecto, por favor crea un fork del repositorio y abre un Pull Request con tus cambios.
 
