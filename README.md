@@ -1,35 +1,30 @@
-# Descarga-video-audio-y-transcribir-de-YouTube
-Proyecto YouTube Downloader y Transcripción Este proyecto permite descargar videos y audios de YouTube y transcribir el audio utilizando el modelo Whisper de OpenAI.
-Requisitos
-Python 3.7+
+# Proyecto YouTube Downloader y Transcripción
 
-Bibliotecas:
+Este proyecto permite descargar videos y audios de YouTube y transcribir el audio utilizando el modelo Whisper de OpenAI.
 
-pytubefix
+## Requisitos
 
-os
+- Python 3.7+
+- Bibliotecas:
+  - `pytubefix`
+  - `os`
+  - `pathlib`
+  - `time`
+  - `whisper`
 
-pathlib
+## Instalación
 
-time
+1. Clona este repositorio.
+2. Instala las bibliotecas necesarias utilizando pip:
 
-whisper
+   ```bash
+   pip install pytubefix whisper
 
-Instalación
-Clona este repositorio.
-
-Instala las bibliotecas necesarias utilizando pip:
-``
-bash
-pip install pytubefix whisper
-``
-Uso
+## Uso
 Para descargar videos y audios de YouTube y realizar transcripciones, puedes ejecutar las funciones provistas en el script.
 
-## Ejemplo de uso
-
+# Ejemplo de uso
 ## Descargar video
-`` python
 from pytubefix import YouTube
 from pytubefix.cli import on_progress
 import os
@@ -46,31 +41,27 @@ def descarga_video(link):
     url_descargas = str(Path.home() / path)
     name ='Asurgir-' + yt.title + '.mp4'
     ys = yt.streams.get_highest_resolution()
-    ys.download(output_path=os.path.join(url_descargas, folder), filename=name) ``
-    
+    ys.download(output_path=os.path.join(url_descargas, folder), filename=name)
 ## Descargar audio
-`` python
 def descarga_audio(link):
-    url = link 
-    yt = YouTube(url, on_progress_callback = on_progress) 
-    ys = yt.streams.get_audio_only() 
-    path = 'Videos' 
-    folder = '@surgir.mp3' 
-    url_descargas = str(Path.home() / path) 
-    name ='Asurgir-' + yt.title 
-    ys.download(output_path=os.path.join(url_descargas, folder), filename=name) ``
-
+    url = link
+    yt = YouTube(url, on_progress_callback = on_progress)
+    ys = yt.streams.get_audio_only()
+    path = 'Videos'
+    folder = '@surgir.mp3'
+    url_descargas = str(Path.home() / path)
+    name ='Asurgir-' + yt.title
+    ys.download(output_path=os.path.join(url_descargas, folder), filename=name)
+## Transcribir audio
+def video_texto(link):
+    url = link
+    yt = YouTube(url, on_progress_callback = on_progress)
+    ys = yt.streams.get_audio_only()
+    name ='Asurgir-' + yt.title
     
-#Transcribir audio
-`` python
-def video_texto(link): 
-    url = link 
-    yt = YouTube(url, on_progress_callback = on_progress) 
-    ys = yt.streams.get_audio_only() 
-    name ='Asurgir-' + yt.title     
-    ys.download(filename = name) 
-    print(name) 
-    time.sleep(40) 
+    ys.download(filename = name)
+    print(name)
+    time.sleep(40)
 
     def transcribe_audio_whisper(audio_file):
         # Cargar el modelo Whisper
@@ -96,9 +87,9 @@ def video_texto(link):
     with open(os.path.join(url_descaga_txt, folder_txt, name_txt), 'w') as archivo:
         archivo.write(texto)
     time.sleep(20)
-    remove(name + '.m4a') ``
-### Contribución
+    remove(name + '.m4a')
+## Contribución
 Si deseas contribuir a este proyecto, por favor crea un fork del repositorio y abre un Pull Request con tus cambios.
 
-### Licencia
+## Licencia
 Este proyecto está bajo la licencia MIT.
