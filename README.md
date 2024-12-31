@@ -1,4 +1,4 @@
-Descarga-video-audio-y-transcribir-de-YouTube
+#Descarga-video-audio-y-transcribir-de-YouTube
 Proyecto YouTube Downloader y Transcripción Este proyecto permite descargar videos y audios de YouTube y transcribir el audio utilizando el modelo Whisper de OpenAI.
 Requisitos
 Python 3.7+
@@ -19,16 +19,17 @@ Instalación
 Clona este repositorio.
 
 Instala las bibliotecas necesarias utilizando pip:
-
+``
 bash
 pip install pytubefix whisper
+``
 Uso
 Para descargar videos y audios de YouTube y realizar transcripciones, puedes ejecutar las funciones provistas en el script.
 
-Ejemplo de uso
+##Ejemplo de uso
 
-Descargar video
-
+##Descargar video
+``
 python
 from pytubefix import YouTube
 from pytubefix.cli import on_progress
@@ -47,12 +48,11 @@ def descarga_video(link):
     name ='Asurgir-' + yt.title + '.mp4'
     ys = yt.streams.get_highest_resolution()
     ys.download(output_path=os.path.join(url_descargas, folder), filename=name)
-
-    
-Descargar audio
-----------------------------------------------
-python
 ``
+    
+##Descargar audio
+``
+python
 def descarga_audio(link):
     url = link
     yt = YouTube(url, on_progress_callback = on_progress)
@@ -65,10 +65,9 @@ def descarga_audio(link):
 ``
 
     
-Transcribir audio
-----------------------------------------------
-python
+#Transcribir audio
 ``
+python
 def video_texto(link):
     url = link
     yt = YouTube(url, on_progress_callback = on_progress)
@@ -104,8 +103,8 @@ def video_texto(link):
     time.sleep(20)
     remove(name + '.m4a')
 ``
-Contribución
+###Contribución
 Si deseas contribuir a este proyecto, por favor crea un fork del repositorio y abre un Pull Request con tus cambios.
 
-Licencia
+###Licencia
 Este proyecto está bajo la licencia MIT.
